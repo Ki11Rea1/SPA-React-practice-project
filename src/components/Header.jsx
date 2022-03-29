@@ -1,9 +1,9 @@
 import React from "react";
-import "./Header.css";
+import style from "./Header.module.css";
 
 const Header = () => {
   return (
-    <header className="header">
+    <header className={style.header}>
       <img src="https://www.marketaccesscanada.ca/wp-content/uploads/2019/12/ACF-logo-placeholder-1.png" />
     </header>
   );
