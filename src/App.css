@@ -8,37 +8,3 @@
   grid-template-columns: 2fr 10fr;
   grid-gap: 5px;
 }
-
-.header {
-  grid-area: h;
-  background-color: cadetblue;
-  padding: 10px;
-}
-.header img {
-  box-sizing: border-box;
-  border: 2px solid burlywood;
-  border-radius: 10px;
-  width: 80px;
-}
-
-.nav {
-  grid-area: n;
-  background-color: burlywood;
-  padding: 10px;
-}
-.Music {
-  margin-bottom: 20px;
-}
-
-.content {
-  padding: 10px;
-  grid-area: c;
-  height: 100vh;
-  background-color: bisque;
-}
-.water img {
-  text-align: center;
-  box-sizing: border-box;
-  height: 300px;
-  width: 100%;
-}

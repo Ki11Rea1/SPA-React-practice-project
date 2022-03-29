@@ -1,0 +1,12 @@
+.content {
+  padding: 10px;
+  grid-area: c;
+  height: 100vh;
+  background-color: bisque;
+}
+.water img {
+  text-align: center;
+  box-sizing: border-box;
+  height: 300px;
+  width: 100%;
+}
