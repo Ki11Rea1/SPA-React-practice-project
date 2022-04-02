@@ -1,5 +1,7 @@
 .item {
-  color: rgb(61, 163, 163);
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(27, 57, 58);
 }
 
 .item img {
