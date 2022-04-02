@@ -2,11 +2,17 @@
   padding: 10px;
   grid-area: c;
   height: 100vh;
-  background-color: bisque;
+  /* Created with https://www.css-gradient.com */
+  background: #f7c896;
+  background: -webkit-linear-gradient(top, #f7c896, #c7f7f3);
+  background: -moz-linear-gradient(top, #f7c896, #c7f7f3);
+  background: linear-gradient(to bottom, #f7c896, #c7f7f3);
+  border-top-left-radius: 5px;
 }
 .wallpaper img {
   text-align: center;
   box-sizing: border-box;
   height: 300px;
   width: 100%;
+  border-radius: 15px;
 }
