@@ -2,8 +2,46 @@
   font-size: 18px;
   font-weight: 500;
   color: rgb(27, 57, 58);
+  margin: 5px;
+  display: grid;
+  grid-template-areas:
+    "a t"
+    "likes info";
+  grid-template-columns: 65px 1fr;
+  grid-template-rows: 1fr 30px;
+  /*background-color: gray;*/
 }
 
-.item img {
+.message {
+  grid-area: t;
+  background-color: aliceblue;
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.likes {
+  grid-area: likes;
+  background-color: rgb(149, 233, 163);
+  border-radius: 15px;
+  text-align: center;
+  display: grid;
+  grid-template-areas: "left right";
+}
+
+.counter {
+  grid-area: left;
+}
+
+.likes span {
+  grid-area: right;
+}
+
+.avatar {
+  /*background-color: brown;*/
+  grid-area: a;
+  width: 50px;
+}
+
+.avatar img {
   width: 50px;
 }
