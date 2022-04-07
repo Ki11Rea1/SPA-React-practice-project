@@ -1,0 +1,10 @@
+.postsBlock {
+  background-color: rgb(146, 207, 209);
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+.posts {
+  margin: 20px;
+}

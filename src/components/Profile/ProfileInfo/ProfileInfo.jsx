@@ -7,7 +7,7 @@ const ProfileInfo = () => {
       <div className={style.wallpaper}>
         <img src="https://mobimg.b-cdn.net/v3/fetch/1b/1b7900783b701ea5a5b73372e9cf0677.jpeg" />
       </div>
-      <div>Avatar + description</div>
+      <div className={style.descriptionBlock}>Avatar + description</div>
     </div>
   );
 };
