@@ -12,9 +12,11 @@ const Navbar = () => {
             navData.isActive ? style.active : style.item
           }
         >
+          {/* Есть ли альтернатива такой записи смены класса активной ссылки? */}
           Profile
         </NavLink>
       </div>
+
       <div className={style.item}>
         <NavLink
           to="/dialogs"
@@ -25,6 +27,7 @@ const Navbar = () => {
           Messages
         </NavLink>
       </div>
+
       <div className={style.item}>
         <NavLink
           to="/news"
@@ -35,6 +38,7 @@ const Navbar = () => {
           News
         </NavLink>
       </div>
+
       <div className={style.item}>
         <NavLink
           to="/music"
@@ -45,6 +49,7 @@ const Navbar = () => {
           Music
         </NavLink>
       </div>
+
       <div className={style.item}>
         <NavLink
           to="/settings"
