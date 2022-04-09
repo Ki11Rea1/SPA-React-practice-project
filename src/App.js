@@ -31,4 +31,3 @@ const App = () => {
 };
 
 export default App;
-//тестовый комментарий
