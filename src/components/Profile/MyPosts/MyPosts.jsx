@@ -6,7 +6,12 @@ const MyPosts = () => {
   let postsData = [
     { id: 1, message: "Hi, how are u?", likesCount: 2 },
     { id: 2, message: "It`s my first post", likesCount: 5 },
+    { id: 3, message: "Cool! Keep learning JS and React!", likesCount: 8 },
   ];
+
+  let postsElements = postsData.map((p) => (
+    <Post message={p.message} likes={p.likesCount} />
+  ));
 
   return (
     <div className={style.postsBlock}>
@@ -15,10 +20,7 @@ const MyPosts = () => {
         <textarea></textarea>
         <button>Add post</button>
       </div>
-      <div className={style.posts}>
-        <Post message={postsData[0].message} likes={postsData[0].likesCount} />
-        <Post message={postsData[1].message} likes={postsData[1].likesCount} />
-      </div>
+      <div className={style.posts}>{postsElements}</div>
     </div>
   );
 };
