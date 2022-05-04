@@ -4,7 +4,7 @@ import DialogItem from "./DialogsItem/DialogItem";
 import Message from "./Message/Message";
 
 const Dialogs = (props) => {
-  let dialogElements = props.data.dialogsData.map((d) => (
+  let dialogsElements = props.data.dialogsData.map((d) => (
     <DialogItem name={d.name} id={d.id} />
   ));
 
@@ -14,7 +14,7 @@ const Dialogs = (props) => {
 
   return (
     <div className={style.dialogs}>
-      <div className={style.dialogsItems}>{dialogElements}</div>
+      <div className={style.dialogsItems}>{dialogsElements}</div>
 
       <div className={style.messages}>{messagesElements}</div>
     </div>
