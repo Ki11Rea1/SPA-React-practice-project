@@ -22,6 +22,7 @@ const App = (props) => {
               <Dialogs
                 data={props.state.messagesPage}
                 sendMessage={props.sendMessage}
+                updateNewMessageText={props.updateNewMessageText}
               />
             }
           />

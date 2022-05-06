@@ -23,6 +23,7 @@ let state = {
       { id: 3, message: "Want to hang out?" },
       { id: 4, message: "Sure" },
     ],
+    newMessageText: "Message text here",
   },
 };
 
@@ -42,12 +43,18 @@ export let updateNewPostText = (newText) => {
   rerenderEntireTree(state);
 };
 
-export let sendMessage = (chatMessage) => {
+export let sendMessage = () => {
   let newMessage = {
     id: 5,
-    message: chatMessage,
+    message: state.messagesPage.newMessageText,
   };
   state.messagesPage.messagesData.push(newMessage);
+  state.messagesPage.newMessageText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewMessageText = (newMessage) => {
+  state.messagesPage.newMessageText = newMessage;
   rerenderEntireTree(state);
 };
 
