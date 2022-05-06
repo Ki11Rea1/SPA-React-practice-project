@@ -35,4 +35,13 @@ export let addPost = (postMessage) => {
   rerenderEntireTree(state);
 };
 
+export let sendMessage = (chatMessage) => {
+  let newMessage = {
+    id: 5,
+    message: chatMessage,
+  };
+  state.messagesPage.messagesData.push(newMessage);
+  rerenderEntireTree(state);
+};
+
 export default state;
