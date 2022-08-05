@@ -35,20 +35,6 @@ let store = {
   subscribe(observer) {
     this._callSubscriber = observer;
   },
-
-  sendMessage() {
-    let newMessage = {
-      id: 5,
-      message: this._state.messagesPage.newMessageText,
-    };
-    this._state.messagesPage.messagesData.push(newMessage);
-    this._state.messagesPage.newMessageText = "";
-    this._callSubscriber(this._state);
-  },
-  updateNewMessageText(newMessage) {
-    this._state.messagesPage.newMessageText = newMessage;
-    this._callSubscriber(this._state);
-  },
   dispatch(action) {
     if (action.type === "ADD-POST") {
       let newPost = {
