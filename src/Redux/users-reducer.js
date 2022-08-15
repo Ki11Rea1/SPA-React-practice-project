@@ -7,6 +7,8 @@ let initialState = {
     {
       id: 1,
       followed: false,
+      avatar:
+        "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
       name: "Kirill",
       status: "my status1",
       city: "Moscow",
@@ -15,6 +17,8 @@ let initialState = {
     {
       id: 2,
       followed: false,
+      avatar:
+        "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
       name: "Nikita",
       status: "my status2",
       city: "Moscow",
@@ -23,13 +27,14 @@ let initialState = {
     {
       id: 3,
       followed: false,
+      avatar:
+        "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
       name: "Ashot",
       status: "my status3",
       city: "Moscow",
       country: "Russia",
     },
   ],
-  newPostText: "Post text here",
 };
 
 const usersReducer = (state = initialState, action) => {
