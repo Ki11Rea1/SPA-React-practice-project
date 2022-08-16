@@ -2,6 +2,41 @@ import React from "react";
 import styles from "./Users.module.css";
 
 let Users = (props) => {
+  if (props.users.length === 0) {
+    props.setUsers([
+      {
+        id: 1,
+        followed: false,
+        avatar:
+          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
+        name: "Kirill",
+        status: "my status1",
+        city: "Moscow",
+        country: "Russia",
+      },
+      {
+        id: 2,
+        followed: false,
+        avatar:
+          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
+        name: "Nikita",
+        status: "my status2",
+        city: "Moscow",
+        country: "Russia",
+      },
+      {
+        id: 3,
+        followed: false,
+        avatar:
+          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
+        name: "Ashot",
+        status: "my status3",
+        city: "Moscow",
+        country: "Russia",
+      },
+    ]);
+  }
+
   return (
     <div>
       {props.users.map((u) => (
