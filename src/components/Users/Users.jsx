@@ -1,42 +1,15 @@
 import React from "react";
 import styles from "./Users.module.css";
+import axios from "axios";
 
 let Users = (props) => {
   if (props.users.length === 0) {
-    props.setUsers([
-      {
-        id: 1,
-        followed: false,
-        avatar:
-          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
-        name: "Kirill",
-        status: "my status1",
-        city: "Moscow",
-        country: "Russia",
-      },
-      {
-        id: 2,
-        followed: false,
-        avatar:
-          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
-        name: "Nikita",
-        status: "my status2",
-        city: "Moscow",
-        country: "Russia",
-      },
-      {
-        id: 3,
-        followed: false,
-        avatar:
-          "http://www.mistercar.ru/wp-content/uploads/2017/12/avatar-zero-grey-8c99a9.png",
-        name: "Ashot",
-        status: "my status3",
-        city: "Moscow",
-        country: "Russia",
-      },
-    ]);
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        props.setUsers(response.data.items);
+      });
   }
-
   return (
     <div>
       {props.users.map((u) => (
@@ -71,8 +44,8 @@ let Users = (props) => {
               <div>{u.status}</div>
             </span>
             <span>
-              <div>{u.country}</div>
-              <div>{u.city}</div>
+              <div>{"u.country"}</div>
+              <div>{"u.city"}</div>
             </span>
           </span>
         </div>
