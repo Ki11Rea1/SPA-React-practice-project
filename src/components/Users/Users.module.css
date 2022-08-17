@@ -1,3 +1,13 @@
 .userPhoto {
   width: 100px;
 }
+
+.pages {
+  padding: 15px;
+}
+
+.selectedPage {
+  font-weight: bold;
+  margin-left: 2px;
+  margin-right: 2px;
+}
