@@ -1,5 +1,5 @@
 .userPhoto {
-  width: 100px;
+  width: 80px;
 }
 
 .pages {
@@ -10,4 +10,8 @@
   font-weight: bold;
   margin-left: 2px;
   margin-right: 2px;
+}
+
+span {
+  margin: 3px;
 }
