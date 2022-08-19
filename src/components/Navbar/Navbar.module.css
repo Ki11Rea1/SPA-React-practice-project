@@ -1,6 +1,7 @@
 .nav {
   grid-area: n;
   /* Created with https://www.css-gradient.com */
+  height: 100%;
   background: #f7c896;
   background: -webkit-linear-gradient(top, #f7c896, #c7f7f3);
   background: -moz-linear-gradient(top, #f7c896, #c7f7f3);

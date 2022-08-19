@@ -12,7 +12,7 @@
 .app-wrapper-content {
   padding: 10px;
   grid-area: c;
-  height: 100vh;
+  height: 100%;
   /* Created with https://www.css-gradient.com */
   background: #f7c896;
   background: -webkit-linear-gradient(top, #f7c896, #c7f7f3);
