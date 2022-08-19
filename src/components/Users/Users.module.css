@@ -1,0 +1,18 @@
+.userPhoto {
+  width: 80px;
+}
+
+.pages {
+  padding: 15px;
+}
+
+.selectedPage {
+  font-weight: bold;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+span {
+  margin-right: 2px;
+  margin-left: 2px;
+}
