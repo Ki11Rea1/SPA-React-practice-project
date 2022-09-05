@@ -9,3 +9,16 @@
   border-radius: 10px;
   width: 80px;
 }
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: white;
+  text-decoration: none;
+}
+
+.loginBlock a:hover {
+  color: rgb(27, 57, 58);
+}
