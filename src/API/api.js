@@ -14,4 +14,23 @@ export const usersAPI = {
         return response.data;
       });
   },
+  followUser(u) {
+    return instance.post(`follow/${u.id}`).then((response) => {
+      return response.data;
+    });
+  },
+
+  unfollowUser(u) {
+    return instance.delete(`follow/${u.id}`).then((response) => {
+      return response.data;
+    });
+  },
+};
+
+export const headerAPI = {
+  authMe() {
+    return instance.get(`auth/me`).then((response) => {
+      return response.data;
+    });
+  },
 };
