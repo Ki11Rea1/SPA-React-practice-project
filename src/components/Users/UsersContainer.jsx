@@ -8,6 +8,7 @@ import {
   setTotalUsersCount,
   toggleIsFetching,
   toggleFollowingProgress,
+  getUsersThunkCreator,
 } from "../../Redux/users-reducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
@@ -15,16 +16,18 @@ import { usersAPI } from "../../API/api";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.toggleIsFetching(true);
+    this.props.getUsers(this.props.pageNumber, this.props.pageSize);
+    /* this.props.toggleIsFetching(true);
     usersAPI
       .getUsers(this.props.pageNumber, this.props.pageSize)
       .then((data) => {
         this.props.toggleIsFetching(false);
         this.props.setUsers(data.items);
         this.props.setTotalUsersCount(data.totalCount);
-      });
+      }); */
   }
 
+  // СОЗДАТЬ THUNKCREATOR ДЛЯ ЗАПРОСА ЮЗЕРОВ И СМЕНЫ ТЕКУЩЕЙ СТРАНИЦЫ!
   onPageChanged = (pageNumber) => {
     this.props.setCurrentPage(pageNumber);
     this.props.toggleIsFetching(true);
@@ -73,4 +76,5 @@ export default connect(mapStateToProps, {
   setTotalUsersCount,
   toggleIsFetching,
   toggleFollowingProgress,
+  getUsers: getUsersThunkCreator,
 })(UsersContainer);
