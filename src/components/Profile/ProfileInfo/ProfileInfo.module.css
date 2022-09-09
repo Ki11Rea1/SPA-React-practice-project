@@ -14,3 +14,16 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.avatar {
+  border-radius: 15px;
+}
+
+.status {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.contacts {
+  margin-top: 15px;
+}
