@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { setUserProfile } from "../../Redux/profile-reducer";
+import { showProfile } from "../../Redux/profile-reducer";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { profileAPI } from "../../API/api";
 
@@ -19,13 +19,7 @@ const withRouter = (Component) => {
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    let userId = this.props.router.params.userId;
-    if (!userId) {
-      userId = 25755; //Заглушка для прогрузки верхней части профиля
-    }
-    profileAPI.getProfile(userId).then((data) => {
-      this.props.setUserProfile(data);
-    });
+    this.props.showProfile(this.props.router.params.userId);
   }
 
   render() {
@@ -37,6 +31,6 @@ let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
 });
 
-export default connect(mapStateToProps, { setUserProfile })(
+export default connect(mapStateToProps, { showProfile })(
   withRouter(ProfileContainer)
 );

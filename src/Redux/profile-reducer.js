@@ -1,4 +1,5 @@
 import { Router } from "react-router-dom";
+import { profileAPI } from "../API/api";
 
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
@@ -57,5 +58,16 @@ export const setUserProfile = (profile) => ({
   type: SET_USER_PROFILE,
   profile,
 });
+
+export const showProfile = (userID) => {
+  return (dispatch) => {
+    if (!userID) {
+      userID = 25755;
+    }
+    profileAPI.getProfile(userID).then((data) => {
+      dispatch(setUserProfile(data));
+    });
+  };
+};
 
 export default profileReducer;
