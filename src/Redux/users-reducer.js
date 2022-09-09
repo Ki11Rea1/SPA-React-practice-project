@@ -127,4 +127,15 @@ export const getUsers = (currentPage, pageSize) => {
   };
 };
 
+export const changeUsersPage = (pageNumber, pageSize) => {
+  return (dispatch) => {
+    dispatch(setCurrentPage(pageNumber));
+    dispatch(toggleIsFetching(true));
+    usersAPI.getUsers(pageNumber, pageSize).then((data) => {
+      dispatch(toggleIsFetching(false));
+      dispatch(setUsers(data.items));
+    });
+  };
+};
+
 export default usersReducer;
