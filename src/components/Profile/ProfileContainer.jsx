@@ -4,8 +4,7 @@ import { connect } from "react-redux";
 import Profile from "./Profile";
 import { setUserProfile } from "../../Redux/profile-reducer";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-
-//REACT-ROUTER-DOM V6!!! withRouter РАБОТАЕТ НЕ ТАК!!! Решение в комментах урока №60!
+import { profileAPI } from "../../API/api";
 
 const withRouter = (Component) => {
   function ComponentWithRouterProp(props) {
@@ -22,13 +21,11 @@ class ProfileContainer extends React.Component {
   componentDidMount() {
     let userId = this.props.router.params.userId;
     if (!userId) {
-      userId = 25755;
+      userId = 25755; //Заглушка для прогрузки верхней части профиля
     }
-    axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
-      .then((response) => {
-        this.props.setUserProfile(response.data);
-      });
+    profileAPI.getProfile(userId).then((data) => {
+      this.props.setUserProfile(data);
+    });
   }
 
   render() {
