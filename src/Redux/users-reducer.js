@@ -68,13 +68,13 @@ const usersReducer = (state = initialState, action) => {
   }
 };
 
-export const follow = (userID) => {
+export const followAccess = (userID) => {
   return {
     type: FOLLOW,
     userID,
   };
 };
-export const unfollow = (userID) => {
+export const unfollowAccess = (userID) => {
   return {
     type: UNFOLLOW,
     userID,
@@ -134,6 +134,30 @@ export const changeUsersPage = (pageNumber, pageSize) => {
     usersAPI.getUsers(pageNumber, pageSize).then((data) => {
       dispatch(toggleIsFetching(false));
       dispatch(setUsers(data.items));
+    });
+  };
+};
+
+export const follow = (userID) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userID));
+    usersAPI.followUser(userID).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(followAccess(userID));
+      }
+      dispatch(toggleFollowingProgress(false, userID));
+    });
+  };
+};
+
+export const unfollow = (userID) => {
+  return (dispatch) => {
+    dispatch(toggleFollowingProgress(true, userID));
+    usersAPI.unfollowUser(userID).then((data) => {
+      if (data.resultCode === 0) {
+        dispatch(unfollowAccess(userID));
+      }
+      dispatch(toggleFollowingProgress(false, userID));
     });
   };
 };
