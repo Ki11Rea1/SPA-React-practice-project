@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Users.module.css";
 import userAvatar from "../../Assets/user.png";
-import { NavLink } from "react-router-dom";
+import { Navigate, NavLink } from "react-router-dom";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -9,6 +9,8 @@ let Users = (props) => {
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
   }
+
+  if (!props.isAuth) return <Navigate to={"/login"} />;
 
   return (
     <div>

@@ -1,10 +1,13 @@
-import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
 import { showProfile } from "../../Redux/profile-reducer";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { profileAPI } from "../../API/api";
+import {
+  Navigate,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 
 const withRouter = (Component) => {
   function ComponentWithRouterProp(props) {
@@ -23,12 +26,15 @@ class ProfileContainer extends React.Component {
   }
 
   render() {
+    if (!this.props.isAuth) return <Navigate to={"/login"} />;
+
     return <Profile {...this.props} profile={this.props.profile} />;
   }
 }
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  isAuth: state.auth.isAuth,
 });
 
 export default connect(mapStateToProps, { showProfile })(
