@@ -41,4 +41,10 @@ export const profileAPI = {
       return response.data;
     });
   },
+  getStatus(userId) {
+    return instance.get(`status/` + userId);
+  },
+  updateStatus(status) {
+    return instance.put(`status`, { status: status });
+  },
 };
