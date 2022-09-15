@@ -59,11 +59,8 @@ export const setUserProfile = (profile) => ({
   profile,
 });
 
-export const showProfile = (userID) => {
+export const getUserProfile = (userID) => {
   return (dispatch) => {
-    if (!userID) {
-      userID = 25755;
-    }
     profileAPI.getProfile(userID).then((data) => {
       dispatch(setUserProfile(data));
     });
