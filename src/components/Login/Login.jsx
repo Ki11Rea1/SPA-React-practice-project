@@ -5,6 +5,7 @@ import { required } from "../../Utilities/Validators/validators";
 import { Input } from "../common/FormControls/FormControls";
 import { login } from "../../Redux/auth-reducer";
 import { Navigate } from "react-router-dom";
+import style from "../common/FormControls/FormControls.module.css";
 //redux-form is outdated, now using react-final-form. Migration recommended!
 
 const LoginForm = (props) => {
@@ -31,6 +32,9 @@ const LoginForm = (props) => {
         <Field component={"input"} name={"rememberMe"} type={"checkbox"} />{" "}
         Remember me
       </div>
+      {props.error && (
+        <div className={style.formSummaryError}>{props.error}</div>
+      )}
       <div>
         <button>Sign in</button>
       </div>
