@@ -33,6 +33,16 @@ export const authAPI = {
       return response.data;
     });
   },
+  loginMe(email, password, rememberMe = false) {
+    return instance.post("auth/login", {
+      email: email,
+      password: password,
+      rememberMe: rememberMe,
+    });
+  },
+  logoutMe() {
+    return instance.delete("auth/login");
+  },
 };
 
 export const profileAPI = {
