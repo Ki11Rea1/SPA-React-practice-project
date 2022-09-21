@@ -1,36 +1,47 @@
-import axios from "axios";
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "./Profile";
-import { showProfile } from "../../Redux/profile-reducer";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { profileAPI } from "../../API/api";
-
-const withRouter = (Component) => {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-    return <Component {...props} router={{ location, navigate, params }} />;
-  }
-
-  return ComponentWithRouterProp;
-};
+import {
+  getUserProfile,
+  getUserStatus,
+  updateUserStatus,
+} from "../../Redux/profile-reducer";
+import { withAuthRedirect } from "../../HOC/WithAuthRedirect";
+import { compose } from "redux";
+import withRouter from "../../HOC/WithRouter";
+import { Navigate } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
-    this.props.showProfile(this.props.router.params.userId);
+    let userID = this.props.router.params.userId;
+    debugger;
+    if (!userID) {
+      userID = this.props.homeId;
+    }
+    this.props.getUserProfile(userID);
+    this.props.getUserStatus(userID);
   }
 
   render() {
-    return <Profile {...this.props} profile={this.props.profile} />;
+    return (
+      <Profile
+        {...this.props}
+        profile={this.props.profile}
+        status={this.props.status}
+        updateUserStatus={this.props.updateUserStatus}
+      />
+    );
   }
 }
 
 let mapStateToProps = (state) => ({
   profile: state.profilePage.profile,
+  status: state.profilePage.status,
+  homeId: state.auth.userId,
 });
 
-export default connect(mapStateToProps, { showProfile })(
-  withRouter(ProfileContainer)
-);
+export default compose(
+  connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
+  withRouter,
+  withAuthRedirect
+)(ProfileContainer);
