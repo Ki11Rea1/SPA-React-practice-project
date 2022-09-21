@@ -9,10 +9,12 @@ import {
 import { withAuthRedirect } from "../../HOC/WithAuthRedirect";
 import { compose } from "redux";
 import withRouter from "../../HOC/WithRouter";
+import { Navigate } from "react-router-dom";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userID = this.props.router.params.userId;
+    debugger;
     if (!userID) {
       userID = this.props.homeId;
     }
