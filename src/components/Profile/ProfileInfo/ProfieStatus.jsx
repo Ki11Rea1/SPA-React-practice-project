@@ -1,6 +1,4 @@
 import React from "react";
-import { pureFinalPropsSelectorFactory } from "react-redux/es/connect/selectorFactory";
-import style from "./ProfileInfo.module.css";
 
 class ProfileStatus extends React.Component {
   state = {
