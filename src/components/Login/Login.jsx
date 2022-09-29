@@ -2,39 +2,31 @@ import React from "react";
 import { connect } from "react-redux";
 import { reduxForm, Field } from "redux-form";
 import { required } from "../../Utilities/Validators/validators";
-import { Input } from "../common/FormControls/FormControls";
+import { createField, Input } from "../common/FormControls/FormControls";
 import { login } from "../../Redux/auth-reducer";
 import { Navigate } from "react-router-dom";
 import style from "../common/FormControls/FormControls.module.css";
 //redux-form is outdated, now using react-final-form. Migration recommended!
 
-const LoginForm = (props) => {
+const LoginForm = ({ handleSubmit, error }) => {
   return (
-    <form onSubmit={props.handleSubmit}>
-      <div>
-        <Field
-          placeholder={"Email"}
-          name={"email"}
-          component={Input}
-          validate={[required]}
-        />
-      </div>
-      <div>
-        <Field
-          placeholder={"Password"}
-          name={"password"}
-          component={Input}
-          validate={[required]}
-          type={"password"}
-        />
-      </div>
-      <div>
-        <Field component={"input"} name={"rememberMe"} type={"checkbox"} />{" "}
-        Remember me
-      </div>
-      {props.error && (
-        <div className={style.formSummaryError}>{props.error}</div>
+    <form onSubmit={handleSubmit}>
+      {createField("Email", "email", [required], Input)}
+      {createField("Password", "password", [required], Input, {
+        type: "password",
+      })}
+      {createField(
+        null,
+        "rememberMe",
+        [required],
+        Input,
+        {
+          type: "checkbox",
+        },
+        "Remember me"
       )}
+
+      {error && <div className={style.formSummaryError}>{error}</div>}
       <div>
         <button>Sign in</button>
       </div>
