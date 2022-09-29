@@ -1,10 +1,9 @@
-import { Router } from "react-router-dom";
 import { profileAPI } from "../API/api";
 
-const ADD_POST = "ADD-POST";
-const SET_USER_PROFILE = "SET_USER_PROFILE";
-const SET_STATUS = "SET_STATUS";
-const DELETE_POST = "DELETE_POST";
+const ADD_POST = "profie/ADD-POST";
+const SET_USER_PROFILE = "profie/SET_USER_PROFILE";
+const SET_STATUS = "profie/SET_STATUS";
+const DELETE_POST = "profie/DELETE_POST";
 
 let initialState = {
   postsData: [
@@ -67,30 +66,24 @@ export const deletePost = (postId) => ({
   postId,
 });
 
-export const getUserProfile = (userID) => {
-  return (dispatch) => {
-    profileAPI.getProfile(userID).then((data) => {
-      dispatch(setUserProfile(data));
-    });
-  };
+export const getUserProfile = (userID) => async (dispatch) => {
+  let response = await profileAPI.getProfile(userID);
+
+  dispatch(setUserProfile(response.data));
 };
 
-export const getUserStatus = (userID) => {
-  return (dispatch) => {
-    profileAPI.getStatus(userID).then((response) => {
-      dispatch(setStatus(response.data));
-    });
-  };
+export const getUserStatus = (userID) => async (dispatch) => {
+  let response = await profileAPI.getStatus(userID);
+
+  dispatch(setStatus(response.data));
 };
 
-export const updateUserStatus = (status) => {
-  return (dispatch) => {
-    profileAPI.updateStatus(status).then((response) => {
-      if (response.data.resultCode === 0) {
-        dispatch(setStatus(status));
-      }
-    });
-  };
+export const updateUserStatus = (status) => async (dispatch) => {
+  let response = await profileAPI.updateStatus(status);
+
+  if (response.data.resultCode === 0) {
+    dispatch(setStatus(status));
+  }
 };
 
 export default profileReducer;
