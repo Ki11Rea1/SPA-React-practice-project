@@ -18,7 +18,7 @@ const LoginForm = ({ handleSubmit, error }) => {
       {createField(
         null,
         "rememberMe",
-        [required],
+        [],
         Input,
         {
           type: "checkbox",
