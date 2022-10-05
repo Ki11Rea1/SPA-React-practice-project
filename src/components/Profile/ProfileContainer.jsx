@@ -14,7 +14,6 @@ import { Navigate } from "react-router-dom";
 class ProfileContainer extends React.Component {
   componentDidMount() {
     let userID = this.props.router.params.userId;
-    debugger;
     if (!userID) {
       userID = this.props.homeId;
     }
