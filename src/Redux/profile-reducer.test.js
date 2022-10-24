@@ -46,7 +46,7 @@ it("length of postData after deiting should decrement", () => {
   expect(newState.postsData.length).toBe(2);
 });
 
-it("length of postData after deiting shouldn`t decrement if id is not correct", () => {
+it("length of postData after deleting shouldn`t decrement if id is not correct", () => {
   // 1. test data
   let action = deletePost(1000);
 
