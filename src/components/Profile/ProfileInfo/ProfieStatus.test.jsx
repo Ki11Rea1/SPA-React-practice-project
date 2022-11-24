@@ -9,10 +9,25 @@ describe("ProfileStatus component", () => {
     expect(instance.state.status).toBe("react-samurai");
   });
 
-  test("Span with status should be dispayed on initialization", () => {
+  test("Span with status should be dispayed on initialization", async () => {
     const component = create(<ProfileStatus status="react-samurai" />);
     const root = component.root;
-    const span = root.findByType("span");
+    const span = await root.findByType("span");
+    expect(span).not.toBeNull();
+  });
+
+  test("input should not be displayed", () => {
+    const component = create(<ProfileStatus status="react-samurai" />);
+    const root = component.root;
+    expect(() => {
+      let input = root.findByType("input");
+    }).toThrow();
+  });
+
+  test("Span should display correct status", async () => {
+    const component = create(<ProfileStatus status="react-samurai" />);
+    const root = component.root;
+    const span = await root.findByType("span");
     expect(span.props.children).toBe("react-samurai");
   });
 });
