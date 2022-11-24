@@ -28,6 +28,25 @@ describe("ProfileStatus component", () => {
     const component = create(<ProfileStatus status="react-samurai" />);
     const root = component.root;
     const span = await root.findByType("span");
-    expect(span.props.children).toBe("react-samurai");
+    expect(span.children[0]).toBe("react-samurai");
+  });
+
+  test("Input should be displayed in edit mode instead of span", async () => {
+    const component = create(<ProfileStatus status="react-samurai" />);
+    const root = component.root;
+    const span = await root.findByType("span");
+    span.props.onDoubleClick();
+    const input = await root.findByType("input");
+    expect(input.props.value).toBe("react-samurai");
+  });
+
+  test("Callback should be called", () => {
+    const mockCallback = jest.fn();
+    const component = create(
+      <ProfileStatus status="react-samurai" updateStatus={mockCallback} />
+    );
+    const instance = component.getInstance();
+    instance.deactivateEditMode();
+    expect(mockCallback.mock.calls.length).toBe(1);
   });
 });
